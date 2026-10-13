@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { sleep, check } from 'k6';
+import { sleep } from 'k6';
 
 const API_URL = 'http://nginx/api/v1/kennels';
 

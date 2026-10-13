@@ -9,7 +9,7 @@ networks:
 
 services:  
   alloy:
-    image: grafana/alloy:v1.9.1
+    image: grafana/alloy:v1.20.1
     volumes:
       - ./obs/config.alloy:/etc/alloy/config.alloy
     command:
@@ -21,7 +21,7 @@ services:
     networks:
       - kennels_net
   grafana:
-    image: grafana/grafana:12.0.2
+    image: grafana/grafana:13.2.4
     restart: unless-stopped
     ports:
       - 3000:3000
@@ -35,7 +35,7 @@ services:
     networks:
       - kennels_net
   tempo:
-    image: grafana/tempo:2.8.1
+    image: grafana/tempo:3.1.0
     command: [ "-config.file=/etc/tempo.yaml" ]
     volumes:
       - ./obs/tempo.yaml:/etc/tempo.yaml
@@ -43,7 +43,7 @@ services:
     networks:
       - kennels_net
   prometheus:
-    image: prom/prometheus:v3.4.1
+    image: prom/prometheus:v3.13.4
     restart: unless-stopped
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
